@@ -119,10 +119,11 @@ sudo echo "SELECTED_EDITOR=\"/bin/nano\"" >> /home/$USER/.selected_editor
 echo "<USER> is $USER"
 echo "<FQDN> is $FQDN"
 sudo cp /home/$USER/.acme.sh/$FQDN/ca.cer /usr/share/ca-certificates/ca.crt
-sudo su
+sudo su -
 echo 'ca.crt' >> /etc/ca-certificates.conf
 update-ca-certificates
-exit
+logout
+
 
 # Stop the zen application and configure the certificate location, then start zend again:
 pkill -f zend
